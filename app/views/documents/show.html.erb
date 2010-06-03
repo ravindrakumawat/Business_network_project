@@ -1,0 +1,15 @@
+<div style="margin-left:50px;">
+<p>
+  <b>Name:</b>
+  <%=h @document.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @document.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_document_path(@document) %> |
+<%= link_to 'Back', documents_path %>
+</div>

@@ -1,0 +1,24 @@
+   <fieldset>
+       <legend><b>Upload</b></legend>
+<% form_for(@sound, :html => {:multipart => true }) do |f| %>
+  <%= f.error_messages %>
+     <p>
+     <%= f.hidden_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+   <%= f.label :audio %>
+    <%= f.file_field :audio %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', sounds_path %>
+  </fieldset>

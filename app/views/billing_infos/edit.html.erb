@@ -1,0 +1,52 @@
+<h1>Editing billing_info</h1>
+
+<% form_for(@billing_info) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :fname %><br />
+    <%= f.text_field :fname %>
+  </p>
+  <p>
+    <%= f.label :lname %><br />
+    <%= f.text_field :lname %>
+  </p>
+  <p>
+    <%= f.label :add_line1 %><br />
+    <%= f.text_field :add_line1 %>
+  </p>
+  <p>
+    <%= f.label :add_line2 %><br />
+    <%= f.text_field :add_line2 %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :state %><br />
+    <%= f.text_field :state %>
+  </p>
+  <p>
+    <%= f.label :postal_code %><br />
+    <%= f.text_field :postal_code %>
+  </p>
+  <p>
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <%= f.label :company %><br />
+    <%= f.text_field :company %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @billing_info %> |
+<%= link_to 'Back', billing_infos_path %>

@@ -1,0 +1,139 @@
+<div style="width:800px;">
+ <% form_for(@group, :html => { :multipart => true }) do |f| %>
+  <table width="800px" style="margin-left:20px;">
+    <tr>
+     <td colspan="2">
+       <div >
+           <%= render :partial => "group_tab" %>
+   </div>
+    </td>
+    </tr>
+    <tr>
+     <td colspan="2">
+         <%= f.error_messages %>
+      </td>
+    </tr>
+       <tr>
+      <td>
+        <%= f.label :logo %>:
+      </td>
+      <td>
+        Your logo will appear in the Groups Directory and on your group pages.
+      </td>
+       </tr>
+       <tr>
+         <td>
+
+         </td>
+      <td>
+        <%= f.file_field :logo %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+         <%= f.label :group_name %>:
+      </td>
+      <td>
+            <%= f.text_field :group_name %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+       <%= f.label :group_type_id %>:
+      </td>
+      <td>
+        <%= f.text_field :group_type_id %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+      <%= f.label :summery %>:
+      </td>
+      <td>
+        Enter a brief description about your group and its purpose. Your summary about this group<br/> will appear in the Groups Directory.
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+        <%= f.text_area :summery %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <%= f.label :description %>:
+      </td>
+      <td>
+       Your full description of this group will appear on your group pages.<br/>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+         <%= f.text_area :description %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+       <%= f.label :website %>:
+      </td>
+      <td>
+      <%= f.text_field :website %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+
+      </td>
+    </tr>
+    <tr>
+      <td>
+<%= f.label :access %>:
+      </td>
+      <td>
+ <%= radio_button_tag 'access', 'Open Access' %> Open Access:
+<%= radio_button_tag 'access', 'Request to Join' %>Request to join:
+      </td>
+    </tr>
+    <tr>
+      <td>
+<%= f.label :language %>:
+      </td>
+      <td>
+  <%= f.text_field :language %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+  <%= f.label :location %>:
+      </td>
+      <td>
+<%= f.check_box :location %> My group is based in a single geographic location.
+      </td>
+    </tr>
+    <tr>
+      <td>
+ <%= f.label :agreement %>:
+      </td>
+      <td>
+   <%= f.check_box :agreement %>Check to confirm you have read and accept the Terms of Service.
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+<%= f.submit 'Create Group' %>
+      </td>
+         </tr>
+
+  </table>
+
+<% end %>

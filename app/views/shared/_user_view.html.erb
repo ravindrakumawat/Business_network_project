@@ -1,0 +1,16 @@
+<%if logged_in? %>
+<h3><%= link_to "Your Account", {:controller => 'accounts', :action => 'index'} %>
+
+<%= link_to "Your page" ,{:controller => 'messages', :action => 'index'} %>
+
+<%= link_to "Inbox",{:controller =>'messages',:action =>'inbox_show'} %>
+</h3>
+<%end%>
+
+
+
+
+
+
+
+

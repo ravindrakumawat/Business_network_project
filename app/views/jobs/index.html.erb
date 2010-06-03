@@ -1,0 +1,33 @@
+ <div style="margin-left:20px;">
+           <%= render :partial => "find_job_tab" %>
+        </div>         
+       <div style="margin-left:20px;">
+          <% form_for @search do |f| %>
+         <p>Keyword:</p>
+ <%= f.text_field :title_like,:style=>"width:360px" %>
+  <div style="font: 10px gray;">e.g. "Engineer" or "Product Manager"</div>
+  <p>Country:</p>
+ <p><%= f.collection_select :country_id_equals, Country.all, :id, :name,{:prompt => true},:style => "width:180px" %>
+    <%= f.text_field :pincode_like %>
+ </p>
+   <p><%= submit_tag 'Search' %></p>        
+  <% end %>
+        </div>
+    
+ 
+    <div style="margin-left:20px;">
+     <% if @jobs.empty? %>
+ <div style="margin-left:20px;margin-top:10px;">NO JOB FOUND.</div>
+<% else %>
+ <% @jobs.each do |job| %>
+  <div class="divjobs">
+      <hr>
+    <p><span style="font-size:17px;"><%= link_to job.title,:controller=> 'jobs', :action=>'show',:id=> job.id %></span></p>
+   <%= job.company_name %> <%= job.pincode %>
+   <% end %>   
+  </div>
+   <% end %>
+          </div>  
+    
+<div align="center"><%= will_paginate @jobs %> </div>
+ 

@@ -1,0 +1,20 @@
+<div align="center" style="height:300px;">
+  <blockquote>   
+  <h1>
+   Confirm Your Email Address
+  </h1>
+    <p align="left">
+   A confirmation email has been sent to <b><%= current_user.email %></b>.
+   Click on the confirmation link in the email to activate your account.
+  </p>
+  <% if current_user.email.include?("gmail") %>
+  <div class="go_to">
+   
+  <%= link_to "Go to Gmail","http://mail.google.com",{:popup=>true} %>
+  </div>
+  <% else %>
+   <%= link_to image_tag 'Go_to.JPG',"http://mail.yahoo.com",{:popup=>true} %>
+<%  end %> 
+  </blockquote>
+  
+</div>

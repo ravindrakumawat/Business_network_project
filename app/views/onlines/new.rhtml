@@ -1,0 +1,6 @@
+<div>
+<% form_for(@online) do |f| %>
+  <%= f.hidden_field :name, :value=>session[:user_id] %>
+  <%= f.submit "Click to enter chat room" , :class => "submit" %>
+  <% end %>
+  </div>

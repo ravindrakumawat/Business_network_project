@@ -1,0 +1,34 @@
+<div style="width:600px;margin-left:40px;">
+  <h1>
+    Basic Information
+  </h1>
+<% form_for :spec do |form| %>
+  <%= error_messages_for 'spec' %>
+  <fieldset style="width:600px;">
+<legend><%= @title %></legend>
+<br/>
+<%= text_field_for form, "first_name",'', :size=>40 %>
+<%= text_field_for form, "last_name",'', :size=>40 %>
+<%= text_field_for form,  "headline",'', :size=>40 %>
+<%= text_field_for form, "industry" ,'', :size=>40 %>
+<div class="form_row">
+<label for="gender">Gender:</label>
+<%= radio_button :spec, :gender, "Male" %> Male
+<%= radio_button :spec, :gender, "Female" %> Female
+</div>
+<div class="form_row">
+<label for="birthdate">Birthdate:</label>
+<%= date_select :spec, :birthdate,
+:start_year => Spec::START_YEAR,
+:end_year => Time.now.year,
+:include_blank => true,
+:order => [:month, :day, :year] %>
+</div>
+<%= text_field_for form, "occupation" ,'', :size=>40%>
+<%= text_field_for form, "city",'', :size=>40 %>
+<%= text_field_for form, "state" ,'', :size=>30%>
+<%#= collection_select(:job,:country_id,Country.all,:id,:name,{:prompt => true}) %>
+<%= text_field_for form, "zip_code", Spec::ZIP_CODE_LENGTH %>
+<%= submit_tag "Update", :class => "submit" %>
+</fieldset>
+<% end %></div>

@@ -1,0 +1,18 @@
+<h1>Event Categorization</h1>
+<hr>
+<table>
+<tr><td><label for="event_title">Event Type</label>:</td>
+<td><%= collection_select(:event,:eventtype_id,EventType.all,:id,:event_type) %></td></tr>
+<tr><td><label for="event_title">industry</label>:</td>
+<td><%= collection_select(:event,:industry_id,Industry.all,:id,:industry_name) %></td></tr>
+<tr><td><label for="event_title">Keywords</label>:</td>
+<td>Keywords (also known as "tags") are descriptive words used to<br>
+help people find events based on what the event is about.
+You may add up to 20 keywords.<br>
+<%= text_area 'event', 'keywords', :size=>"30x5" %></td></tr>
+<tr><td><label for="event_title">Who should attend?</label>:</td>
+<td>Tell us what types of people should attend your event by entering job titles.<br>
+You may add up to 20 job titles.<br>
+<%= text_area 'event', 'attender', :size=>"30x5" %></td></tr>
+<tr><td><label for="event_title">Organization</label>:</td>
+<td><%= text_field 'event', 'organization' %></td></tr></table>

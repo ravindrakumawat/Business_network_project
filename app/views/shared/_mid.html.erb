@@ -1,0 +1,4 @@
+<B>FORMAT<%= collection_select(:upload,:format_id,Format.all,:id,:name, :prompt => true) %>
+CATEGORY<%= collection_select(:upload,:category_id,Category.all,:id,:name, :prompt => true) %>
+LANGUAGE<%= collection_select(:upload,:language_id,Language.all,:id,:name, :prompt => true) %>
+</B>

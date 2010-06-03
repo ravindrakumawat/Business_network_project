@@ -1,0 +1,18 @@
+<div style="width:780px;">
+<div style="margin-left:50px;">
+<h1>Information</h1>
+<p>
+  Some basic information about yourself.
+</p>
+
+<% form_for :education do |form| %>
+  <fieldset>
+    <legend>Update Your Info</legend>
+<%= render :partial => "education_row", :collection => Education::QUESTIONS,
+:locals => { :form => form } %>
+<br clear="all" />
+<%= submit_tag "Update All", :class => "submit" %>
+</fieldset>
+<% end %>
+  </div>
+  </div>

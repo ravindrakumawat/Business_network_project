@@ -1,0 +1,45 @@
+<div style="margin-left:20px;">
+<% form_for(@group_chat) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= "Welcome to Our Chatroom" %><br />
+    <%= f.text_area :chat_field, :size => '40x5' %>
+  </p>
+  <p>
+    <%= f.hidden_field :user_name, :value=>session[:user_name] %>
+  </p>
+  <p>
+    <%= f.submit 'Create', :action=>'create' %>
+  </p>
+<% end %>
+
+<br />
+<% @group_chats.each do |groupchat| %>
+<table>
+	<tr>
+		<td><b><%= groupchat.user_name %><%= ": " %></b>
+			<%= groupchat.chat_field %>
+		</td>
+                <td>
+                  <p>
+                  <b><% "  :" %> <%= time_ago_in_words(groupchat.created_at) %> ago</b></p>
+                </td>
+	</tr>
+	<% end %>
+</table>
+<br>
+<br>
+<div style="position:relative;">
+  <%= "The Users currently Online are" %>
+  <% for user in @users %>
+  <% for online in @onlines %>
+<%  if user.id==online.name %>
+  <br>
+  <% if online.name!=session[:user_id] %>
+  <%=link_to "#{user.login}", :controller=>'chats', :action=>'index', :id=>user.id %>
+  <% end %>
+  <% end %>
+<% end %>
+  <%  end %>
+</div></div>

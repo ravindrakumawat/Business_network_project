@@ -1,0 +1,27 @@
+<div style="width:800px;margin-left:20px;">
+    <h1>My Events</h1>
+    <table width="800px">
+  <tr>
+    <td colspan="2">
+       <div>
+           <%= render :partial => "event_tab" %>
+       </div>
+    </td>
+  </tr>
+ </table>
+     <% form_for @search do |f| %>
+  <p><%= f.text_field :title_like %><p>
+  <p><%= submit_tag 'Search' %></p>
+  <% end %>
+<% if @search.empty? %>
+  No Record Found.
+  <%  else %>
+    <% for event in @myevents %>
+<%=  "Event Name :" %>
+<%= link_to event.title, :controller=>"events", :action=>"show", :id=>event.id %>
+<% end %><% end %>
+<br />
+<hr>
+</div>
+
+

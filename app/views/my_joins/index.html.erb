@@ -1,0 +1,78 @@
+<div style="width:800px;">
+   <table>
+    <tr>
+      <td colspan="2">
+        <div style="margin-left:20px;">
+           <%= render :partial => "group_tab" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+         <div class="divcreategroup">
+          <div class="divcgmatter">
+            <span style="font-weight:bold;">
+            LinkedOUT Groups can help you<br/>
+            stay informed and keep in <br/>
+            touch with people that share<br/>
+            your interests. Create a <br/>
+            group today.
+            </span>
+          </div><br/>
+          <div>
+        <%= link_to image_tag('create_group.JPG'), :controller=> 'groups', :action=>'new' %>
+        </div>
+        </div>
+      </td>
+       <td>
+        <div class="divrecord">
+          <h2>My Groups</h2>
+ <% if @group_joins.empty? %>
+<div class="norecord">
+ <div class >
+   <h2 >
+   You are not a member of any groups</h2>
+  LinkedOUT now offers new LinkedOUT groups,
+ a new way for groups to bring<br/> value to their members.
+ Many professionals advance their business goals by<br/>
+ counting on professional groups, alumni organizations
+ and work groups to make<br/> vital new business contacts
+   which will enhance their trusted connections.
+</div>
+</div>
+<% else %>
+ <% for group_join in @group_joins %>
+  <% @groups = Group.find(:all, :conditions =>{:id => group_join.group_id}) %>
+  <% for group in @groups %>
+    <div style="width:600px;">
+    <table>
+      <tr>
+        <td width="130px;">
+     <%= link_to image_tag(group.logo.url, :size => '100x70'),:controller=> 'groups', :action =>'show',:id=> group.id  %>
+        </td>
+    <td valign="top">
+      <span style="font-size:17px;"><%= link_to group.group_name,:controller=> 'groups', :action=>'show',:id=> group.id %></span>
+      <br/>
+    <%= group.summery %><br/>
+      <%= group.description %>
+    </td>
+    <td>
+
+    </td>
+      </tr>
+    </table>
+
+
+
+  </div>
+  <hr/>
+<%  end %>
+  <%  end %>
+     <%  end %>
+
+    </div>
+      </td>
+    </tr>
+  </table>
+ </div>
+

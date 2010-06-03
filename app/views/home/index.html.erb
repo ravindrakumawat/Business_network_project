@@ -1,0 +1,10 @@
+<% content_for :friend do %>
+ <%= render :partial => "friendship/friends" %> 
+<% end %>
+
+ <% content_for :blog do %>
+ <% unless @blog.posts.empty? %>
+ <%= render :partial => "blog" %>
+ <% end %>
+<% end %>
+

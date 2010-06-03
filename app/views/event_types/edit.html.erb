@@ -1,0 +1,18 @@
+<div style="margin-left:50px;" align="left">
+<h1>Editing event_type</h1>
+
+<% form_for(@event_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :event_type %><br />
+    <%= f.text_field :event_type %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @event_type %> |
+<%= link_to 'Back', event_types_path %>
+</div>

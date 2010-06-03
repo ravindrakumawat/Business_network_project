@@ -1,0 +1,25 @@
+ <% content_for(:submenu) do %>
+<%= render :partial => 'shared/user_view'%>
+<% end %>
+<p>
+  <b>Subject:</b>
+  <%=h @message.subject %>
+</p>
+
+
+<p>
+  <b>Message:</b>
+  <%=h @message.message %>
+</p>
+
+
+<p>
+  <b>Receiver:</b>
+  <%=h @message.receiver %>
+</p>
+
+
+
+
+
+<%= link_to 'Back', :action=> 'index' %>

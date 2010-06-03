@@ -1,0 +1,31 @@
+<table>
+  <tr>
+    <td style="width:600px;">
+        <%= render :partial => 'message_tab'%>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <h1>Sent Messages</h1>
+<div id="MiddlePart">
+<%= grid(@messages_grid ) do |g|
+
+    g.column :column_name => 'TO'  do |message|
+     message.receiver
+    end
+    g.column :column_name => 'SUBJECT'  do |message|
+     message.subject
+    end
+  g.column :column_name => 'MESSAGE' do |message|
+    message.message
+  end
+   g.column :column_name => '' do |message|
+   end
+ end -%>
+
+</div>
+  </td>
+  </tr>
+</table>
+
+<h2><%= link_to "Post a new message" ,{:controller => 'messages', :action => 'new'} %></h2>

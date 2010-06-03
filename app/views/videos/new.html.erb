@@ -1,0 +1,22 @@
+<div style="margin-left:20px;margin-bottom:20px;" align="left">
+   <br/>
+     <fieldset>
+       <legend><b>New Video</b></legend>
+<% form_for(@video, :html => { :multipart => true }) do |f| %>
+  <%= f.error_messages %>
+  <table>
+    <tr>
+      <td><%= f.label :title %>: </td><td><%= f.text_field :title %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :description %>: </td><td><%= f.text_area :description %></td>
+    </tr>    
+    <tr>
+      <td><%= f.label :video %>: </td><td><%= f.file_field :video %></td>
+    </tr>    
+    <tr><td><%= f.submit 'Submit' %> - <%= link_to 'Back', videos_path %></td></tr>
+  </table>
+
+<% end %>
+  </fieldset>
+</div>

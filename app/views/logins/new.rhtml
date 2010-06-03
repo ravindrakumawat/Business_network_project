@@ -1,0 +1,5 @@
+<div >
+<% form_for(@login) do |f| %>
+  <%= f.text_field :name, :value=>session[:user_id] %>
+  <%= f.submit "Click to enter chat room" , :class => "submit" %>
+  <% end %>

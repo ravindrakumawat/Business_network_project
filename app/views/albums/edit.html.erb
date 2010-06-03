@@ -1,0 +1,36 @@
+<div >
+<h1>Editing album</h1>
+
+<% form_for @album, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+   <div class="form_row">
+<label for="shared">Shared With:</label>
+<%= radio_button :album, :shared, "0" %> Everyone
+<%= radio_button :album, :shared, "1" %> All my friends
+<%= radio_button :album, :shared, "2" %> Selected Friends
+</div>
+ <div id="photos">
+  <%= render :partial => 'picture', :collection => @album.pictures %>
+</div>
+<div >
+<%= link_to_function "Add Picture" do |page|
+  page.insert_html :bottom, :photos, :partial => 'picture', :object => Picture.new
+end %>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+<%= link_to 'Show', @album %> |
+<%= link_to 'Back', albums_path %>
+
+</div>
+</div>

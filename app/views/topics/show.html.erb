@@ -1,0 +1,34 @@
+<div class="divrecord" style="margin-left:80px;">
+
+<p>
+  <h3>Forum: - <%=h @forum.name %></h3>
+</p>
+
+<p>
+  <b><%=h @topic.subject %></b>
+</p>
+
+<p>
+  <%=h @topic.body %>
+</p>
+
+<% unless @topic.replies.empty? %>
+
+  <% @topic.replies.each do |reply| %>
+      <p>
+        <b><%= reply.subject %></b>
+      </p>
+      <p>
+        <%=h reply.body %>
+      </p>
+
+  <% end %>
+<% end %>
+
+<h2>Reply</h2>
+<%= render :partial => @reply = Reply.new, :locals => { :button_name => 'Reply' } %>
+
+<%= link_to 'Edit', edit_forum_topic_path(@forum, @topic) %> |
+<%= link_to 'Back', forum_path(@forum) %>
+</div>
+

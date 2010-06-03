@@ -1,0 +1,19 @@
+<div style="margin-left:20px;">
+ <%= error_messages_for :ad %>
+  <%  form_for(:ad,:html => {:class => "MainForm" }) do |f|%>
+<p> <% f.label :name %>
+    <%= f.text_field :name %></p>
+
+     <p> <%= f.text_area :html %></p>
+
+    <p> <% f.label :frequency %>
+    <%= f.text_area :frequency %></p>
+
+
+   <p> <% f.label :audience %>
+    <%= f.text_area :audience %></p>
+
+  <p> <%= f.submit :create %></p>
+
+ <% end %>
+ </div>

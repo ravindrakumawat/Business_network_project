@@ -1,0 +1,31 @@
+<div  style="margin-left:50px;">
+<h1><%= @title %></h1>
+<% form_for :company do |form| %>
+<%= error_messages_for 'company' %>
+  <fieldset style="width:600px;">
+<legend>Edit Company Info</legend>
+<%= text_field_for form, "company_name" %>
+<%= text_field_for form, "title" %>
+ <div class="form_row" >
+<label for="time_from">Time from:</label>
+<%= date_select :company, :time_from,
+:start_year => Company::START_YEAR,
+:end_year => Time.now.year,
+:include_blank => true,
+:order => [:month,:year] %>
+</div>
+<div class="form_row">
+<label for="time_from">Time to:</label>
+<%= date_select :company, :time_to,
+:start_year => Company::START_YEAR,
+:end_year => Time.now.year,
+:include_blank => true,
+:order => [:month, :year] %>
+</div>
+<br/>
+<div>
+<%= submit_tag "Update", :class => "submit" %>
+</div>
+<br/>
+<% end %>
+</div>

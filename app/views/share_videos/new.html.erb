@@ -1,0 +1,22 @@
+<div style="margin-left:20px;">
+<h1>New share_video</h1>
+
+<% form_for(@share_video) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :video_url %><br />
+    <%= f.text_field :video_url %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', share_videos_path %>
+
+</div>

@@ -1,0 +1,71 @@
+<table>
+  <tr>
+    <th colspan="3" align="left">
+      <%= pluralize(@user.friends.count, "LinkedOUT friend") %>
+    </th>
+  </tr>  
+  <tr>
+    <td align="center">     
+     <% @user.friends.each do |friend| %>
+ <div class="Aboutimg">
+	   <% @photo = Photo.find(:first, :conditions =>['user_id =?', friend.id]) %>
+       <%= link_to image_tag(@photo.photo.url,:size=>'70x70'), profile_for(friend) %>
+    <%= link_to friend.login, profile_for(friend) %>
+	</div>
+	
+         <% end %>
+       </td>
+  </tr>  
+
+  <% unless @user.requested_friends.empty? or hide_edit_links? %>
+    <tr>
+      <th colspan="3" align="left">
+        <%= pluralize(@user.requested_friends.count, "requested friend") %>
+      </th>
+    </tr>
+    <% @user.requested_friends.each do |requester| %>
+    <tr>
+      <td>
+         <div class="Aboutimg">
+ <% @photo = Photo.find(:first, :conditions =>['user_id =?', requester]) %>
+  <%= link_to image_tag(@photo.photo.url,:size=> '50x50'), profile_for(requester) %>
+    <%= link_to requester.login, profile_for(requester) %>
+       <%= link_to "Accept", 
+                      :controller => "friendship", :action => "accept", 
+                      :id => requester.login %> /
+          <%= link_to "Decline", 
+                      { :controller => "friendship", :action => "decline", 
+                       :id => requester.login },
+                      :confirm => 
+                      "Really decline friendship with #{requester.login}?" %>
+    
+         </div>
+      </td>
+    </tr>
+    <% end %>
+  <% end %>
+  <% unless @user.pending_friends.empty? or hide_edit_links? %>
+    <tr>
+      <th colspan="3" align="left">
+        <%= pluralize(@user.pending_friends.count, "pending friend") %>
+      </th>
+    </tr>
+    <% @user.pending_friends.each do |pending_friend| %>
+    <tr>
+      <td>
+         <div class="Aboutimg">
+<% @photo = Photo.find(:first, :conditions =>['user_id =?', pending_friend]) %>
+  <%= link_to image_tag(@photo.photo.url,:size=> '50x50'), profile_for(pending_friend) %>
+     <%= link_to pending_friend.login,
+                      profile_for(pending_friend) %>
+     <%= link_to "Cancel request", 
+                      { :controller => "friendship", :action => "cancel", 
+                        :id => pending_friend.login },
+                      :confirm => 
+                      "Cancel friendship request?" %>
+         </div>
+         </td>
+    </tr>
+  <% end %>
+  <% end %>
+</table>

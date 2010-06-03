@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+    <title>GET 2GETHER </title>
+<%= stylesheet_link_tag 'style' %>
+ <%= stylesheet_link_tag 'scaffold' %>
+ <%= javascript_include_tag :defaults %>
+
+
+</head>
+<body>
+<div class="PageBackgroundSimpleGradient">
+    </div>
+    <div class="PageBackgroundGlare">
+        <div class="PageBackgroundGlareImage"></div>
+    </div>
+    <div class="Main">
+        <div class="Sheet">
+            <div class="Sheet-tl"></div>
+            <div class="Sheet-tr"></div>
+            <div class="Sheet-bl"></div>
+            <div class="Sheet-br"></div>
+            <div class="Sheet-tc"></div>
+            <div class="Sheet-bc"></div>
+            <div class="Sheet-cl"></div>
+            <div class="Sheet-cr"></div>
+            <div class="Sheet-cc"></div>
+            <div class="Sheet-body">
+                <div class="Header">
+                    <div class="Header-png"></div>
+                    <div class="Header-jpeg">
+                                      </div>
+                    <div class="logo">
+                      <h1 id="name-text" class="logo-name"><a href="#"><p align="left" style="margin-left:20px;">GET 2GETHER</p></a></h1>
+                      </div>
+                </div>
+                <div class="nav">
+                	<div class="l"></div>
+                	<div class="r"></div>
+                	<ul class="artmenu">
+                		<li><a href="#"><span class="l"></span><span class="r"></span><span class="t">Home</span></a></li>
+                		<li><a href="#"><span class="l"></span><span class="r"></span><span class="t">About</span></a></li>
+                		<li><a href="#"><span class="l"></span><span class="r"></span><span class="t">Services</span></a></li>
+                		<li><a href="#"><span class="l"></span><span class="r"></span><span class="t">Solutions</span></a></li>
+                		<li><a href="/account/login"><span class="l"></span><span class="r"></span><span class="t">Sign In</span></a></li>
+                	</ul>
+                </div>
+              <div>
+                <br/>
+              </div>
+             <div class="contentLayout" >
+                <div align="center">
+                 <% if flash[:notice] -%>
+                   <blockquote>
+               <h2><%= flash[:notice] %></h2>
+                   </blockquote>
+                 <% end -%>
+                </div>
+                <div align="right" style="width:800px;">                   
+                   <%= yield %>
+                </div>
+                            </div>
+                              <div class="cleared"></div><div class="Footer">
+                    <div class="Footer-inner">
+                        <a href="#" class="rss-tag-icon" title="RSS"></a>
+                        <div class="Footer-text">
+                            <p><a href="#">Contact Us</a> | <a href="#">Terms of Use</a> 
+                              <% if logged_in? %>
+                              |<a href="/forums">Forums</a>
+                              <%end%>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="Footer-background"></div>
+                </div>
+                    </div>
+                        </div>
+                            </div>
+                     
+  </body>
+</html>

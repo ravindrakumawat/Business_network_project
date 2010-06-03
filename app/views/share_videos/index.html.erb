@@ -1,0 +1,23 @@
+<div style="margin-left:20px;">
+<h1>Listing share_videos</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Video url</th>
+  </tr>
+<% @share_videos.each do |share_video| %>
+  <tr>
+    <td>
+      <%= display_video(share_video) %>
+    </td>
+    <td><%=h share_video.title %></td>
+        <td><%= link_to 'Show', share_video %></td>
+    <td><%= link_to 'Edit', edit_share_video_path(share_video) %></td>
+    <td><%= link_to 'Destroy', share_video, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+<br />
+<%= link_to 'New share_video', new_share_video_path %>
+</div>

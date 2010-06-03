@@ -1,0 +1,16 @@
+<h1>Editing industry</h1>
+
+<% form_for(@industry) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :industry %><br />
+    <%= f.text_field :industry %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @industry %> |
+<%= link_to 'Back', industries_path %>

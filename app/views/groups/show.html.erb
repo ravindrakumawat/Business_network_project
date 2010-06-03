@@ -1,0 +1,18 @@
+<div style="margin-left:50px;">
+<p>
+  <b>Group name:</b>
+  <%=h @group.group_name %>
+</p>
+<p>
+  <b>Description:</b>
+  <%=h @group.description %>
+</p>
+ <% if @group_join %>
+<span>You have already joined this group.</span>
+<% else %>
+   <span><%= link_to 'Join this group',:action=>'group_join',:id=>@group.id %></span>
+<%  end %>
+ 
+<%= link_to 'Edit', edit_group_path(@group) %> |
+<%= link_to 'Back', groups_path %>
+</div>

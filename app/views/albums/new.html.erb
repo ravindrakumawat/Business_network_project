@@ -1,0 +1,30 @@
+<div >
+<h1>New album</h1>
+
+<% form_for @album, :html => { :multipart => true } do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+
+  <div class="form_row">
+<label for="shared">Shared With:</label>
+<%= radio_button :album, :shared, "0" %> Everyone
+<%= radio_button :album, :shared, "1" %> All my friends
+<%= radio_button :album, :shared, "2" %> Selected Friends
+</div>
+<p> <%= render :partial => 'form', :locals => {:f => f} %></p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', albums_path %>
+
+  </div>

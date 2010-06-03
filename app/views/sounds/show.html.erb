@@ -1,0 +1,16 @@
+<div style="margin-left:20px;" align="left">
+
+<p>
+  <b>Title:</b>
+  <%=h @sound.title %>
+</p>
+
+
+<%= mp3_player @sound.audio.url, :width => 240, :text => "333333",:bg => "145871",:right_bg=> "145871",:left_bg=> "145871", :track=>"FFFFFF" %>
+
+
+
+<%= link_to 'Edit', edit_sound_path(@sound) %> |
+<%= link_to 'Back', sounds_path %>
+
+</div>

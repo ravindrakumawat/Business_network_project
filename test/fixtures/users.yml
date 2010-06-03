@@ -1,0 +1,18 @@
+quentin:
+  id: 1
+  login: hitendra
+  email: hitendrasingh1985@gmail.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  #crypted_password: "ce2/iFrNtQ8=\n" # quentin, use only if you're using 2-way encryption
+  created_at: <%= 5.days.ago.to_s :db %>
+  activation_code: 7df6d00b7d4e008156c6425e2ddde20d4f69e267
+  activated_at: <%= 5.days.ago.to_s :db %> 
+aaron:
+  id: 2
+  login: aaron
+  email: aaron@example.com
+  salt: 7e3041ebc2fc05a40c60028e2c4901a81035d3cd
+  crypted_password: 00742970dc9e6319f8019fd54864d3ea740f04b1 # test
+  activation_code: 7df6d00b7d4e008156c6425e2ddde20d4f69e267
+  created_at: <%= 1.days.ago.to_s :db %>

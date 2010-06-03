@@ -1,0 +1,8 @@
+<div class="divrecord" style="margin-left:80px;">
+<h1>New reply</h1>
+
+<%= error_messages_for :reply %>
+
+<%= render :partial => @reply, :locals => { :button_name => "Reply" } %>
+
+<%= link_to 'Back', replies_path %></div>

@@ -1,0 +1,18 @@
+
+<h4><%= link_to "Community" ,{:controller => 'groups', :action => 'new'} %>
+
+<%= link_to "Your contacts",{:controller =>'contacts',:action =>'index'} %>
+
+<%= link_to "Invite friends", {:controller => 'emailer', :action => 'index'} %>
+
+  <%= link_to "Sent invitations", {:controller => 'groups', :action => 'show'} %>
+  <%= link_to "Who has you as a contact", {:controller => 'groups', :action => 'show'} %>
+  <%= link_to "Incoming invitations", {:controller => 'groups', :action => 'show'} %>
+  <%= link_to "Their private publications", {:controller => 'groups', :action => 'show'} %>
+
+</h4>
+
+
+
+
+

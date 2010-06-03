@@ -1,0 +1,51 @@
+<div >
+  
+ <%= link_to image_tag('add_button.png'),:action=>'new'  %>
+<p><h2>Audio Files</h2></p><br />
+<%= will_paginate @sounds %>
+<div>
+    <% if @sounds.nil? %>
+        
+<% else %>
+  <% for sound in @sounds do %>
+        <blockquote>       
+           <table>
+             <tr>
+               <td width="100px;">
+          <%=link_to image_tag("music_node.jpg"),sound_url(sound)  %>
+               </td>
+               <td width="500px;" valign="top">
+          <table>
+            <tr>
+              <td width="300px">
+             <a href = "<%= sound_url(sound) %>" ><%= sound.title %></a>
+              </td>
+               <td>
+             <%= link_to 'Delete', sound, :confirm => 'Are you sure?', :method => :delete %>
+              </td>
+            </tr>
+            <tr>
+               <td>
+                  <%= sound.created_at %>
+              </td>
+            </tr>           
+            <tr>
+              <td>
+              <%= sound.description %>
+              </td>
+            </tr>
+          </table>
+        </td>
+        </tr>
+        </table>    
+         </blockquote> 
+      
+	  
+     		<% end %>
+		<% end %>
+
+	</div>
+     <div class = "clear-right"></div>
+<div align="right">	<%= will_paginate @sounds, :class => "pagination page-wide" %>
+     </div>
+        </div>

@@ -1,0 +1,75 @@
+<div>
+<h1>Edit This Event</h1>
+<hr>
+<h1>Event Details</h1>
+<hr>
+<%= form_tag :action => 'update', :id => @event %>
+<table><tr><td>
+<label for="event_title">Event Title</label>:</td>
+<td><%= text_field 'event', 'title' %></td></tr>
+  <tr><td><label for="event_title">From Date</label>:</td>
+<td><%= date_select 'event', 'from_datentime' %></td></tr>
+<tr><td><label for="event_title">To Date</label>:</td>
+<td><%= date_select 'event', 'to_datentime' %></td></tr>
+<tr><td><label for="event_title">This is a virtual event.</label>:</td>
+<td><%= check_box 'event', 'virtual' %></td></tr>
+<tr><td><label for="event_title">Venue</label>:</td>
+<td><%= text_field 'event', 'venue' %></td></tr>
+<tr><td><label for="event_title">Address</label>:</td>
+<td><%= text_field 'event', 'address' %></td></tr>
+<tr><td><label for="event_title">City</label>:</td>
+<td><%= text_field 'event', 'city' %></td></tr>
+<tr><td><label for="event_title">State/Region</label>:</td>
+<td><%= text_field 'event', 'state' %></td></tr>
+<tr><td><label for="event_title">Country</label>:</td>
+<td><%= text_field 'event', 'country' %></td></tr>
+<tr><td><label for="event_title">Postal Code</label>:</td>
+<td><%= text_field 'event', 'postalcode' %></td></tr>
+<tr><td><label for="event_title">Website</label>:</td>
+<td><%= text_field 'event', 'website' %></td></tr>
+<tr><td><label for="event_title">Description</label>:</td>
+<td>The event description will be displayed on the event page.<br>
+The first 300 characters will be displayed to people browsing events.
+(No HTML)<br><%= text_area 'event', 'description',:size=>"25x10" %></td></tr></table>
+<h1>Event Categorization</h1>
+<hr>
+<table>
+<tr><td><label for="event_title">Event Type</label>:</td>
+<td><%= collection_select(:event,:eventtype_id,EventType.all,:id,:event_type) %></td></tr>
+<tr><td><label for="event_title">industry</label>:</td>
+<td><%= collection_select(:event,:industry_id,Industry.all,:id,:industry_name) %></td></tr>
+<tr><td><label for="event_title">Keywords</label>:</td>
+<td>Keywords (also known as "tags") are descriptive words used to<br>
+help people find events based on what the event is about.
+You may add up to 20 keywords.<br>
+<%= text_area 'event', 'keywords', :size=>"30x5" %></td></tr>
+<tr><td><label for="event_title">Who should attend?</label>:</td>
+<td>Tell us what types of people should attend your event by entering job titles.<br>
+You may add up to 20 job titles.<br>
+<%= text_area 'event', 'attender', :size=>"30x5" %></td></tr>
+<tr><td><label for="event_title">Organization</label>:</td>
+<td><%= text_field 'event', 'organization' %></td></tr></table>
+<h1>Event Oraganization</h1>
+<hr>
+<table>
+<tr><td><label for="event_title">Are You Attending?</label>:</td>
+<td><%= text_field 'event', 'attending' %></td></tr>
+<tr><td><label for="event_title">Are You Organizing?</label>:</td>
+<td><%= check_box 'event', 'organizing' %></td></tr>
+<tr><td><label for="event_title">Free</label>:</td>
+<td><%= check_box 'event', 'free' %></td></tr>
+<tr><td><label for="event_title">Tickets On Sale</label>:</td>
+<td><%= text_field 'event', 'price' %></td></tr>
+<tr><td><label for="event_title">Does this event repeat?</label>:</td>
+<td><%= text_field 'event', 'repeat' %></td></tr>
+<tr><td><label for="event_title">Who Can Edit This Event?</label>:</td>
+<td><%= text_field 'event', 'edit' %></td></tr>
+<tr><td><%= submit_tag "Update" %></td></tr></table>
+<%= form_tag %>
+
+
+
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', events_path %>
+
+</div>

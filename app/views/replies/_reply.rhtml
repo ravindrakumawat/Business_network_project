@@ -1,0 +1,16 @@
+<div class="divrecord" style="margin-left:80px;">
+<% form_for([@topic, @reply]) do |f| %>
+  <p>
+    <b>Subject</b><br />
+    <%= f.text_field :subject %>
+  </p>
+
+  <p>
+    <b>Body</b><br />
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.submit button_name %>
+  </p>
+<% end %></div>

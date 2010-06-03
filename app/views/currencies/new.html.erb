@@ -1,0 +1,17 @@
+<div style="margin-left:20px;" align="left">
+<h1>New currency</h1>
+
+<% form_for(@currency) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', currencies_path %>
+</div>

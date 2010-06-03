@@ -1,0 +1,31 @@
+
+<%= stylesheet_link_tag 'lightbox' %>
+  <%= javascript_include_tag :defaults %>
+
+  <%= javascript_include_tag 'builder' %>
+ <%= javascript_include_tag 'effects' %>
+<%= javascript_include_tag 'prototype' %>
+  <%= javascript_include_tag 'scriptaculous' %>
+   <%= javascript_include_tag 'lightbox_plus.js' %>
+
+<div style="margin-left:40px;">
+  <div>
+    <%= link_to image_tag('add_photo.JPG'),:action=>'edit',:id=> @album %>
+  </div>
+  <div style="width:200px;">
+    <b>  Albums (<%= @album.pictures.count %>)</b>
+  </div>
+  <div>
+ <%=h @album.name %>>
+ <%=h @album.description %>
+  </div> 
+<% for picture in @album.pictures %>
+  <%= link_to image_tag(picture.picture.url(:thumb), :alt =>""),picture.picture.url(:large), {:rel => "lightbox[roadtrip]",:class=>"effectable", :title =>""} %>
+<%  end %>
+
+ 
+<%= link_to 'Edit', edit_album_path(@album) %> |
+<%= link_to 'Back', albums_path %>
+
+</div>
+

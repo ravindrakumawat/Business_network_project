@@ -1,0 +1,49 @@
+<div align="center" style="height:300px;">
+   <% form_tag :action => 'login' do %>
+  <div align="left" style="width:600px;margin-left:50px;">
+
+  </div>
+<div class="divsign" >
+  <h1>Sign In to GET 2GETHER</h1>
+<div class="divlogin">
+  <table cellspacing="10px">
+  <tr>
+    <td width="50px">
+     <label for="login">Login:</label>
+    </td>
+    <td>
+      <%= text_field_tag 'login','',:size=> 50 %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label for="password">Password:</label>
+    </td>
+    <td style="font:10px blue;">
+<%= password_field_tag 'password','',:size=> 50 %>&nbsp; <%= link_to "Forgot Password", :controller=> "account", :action=>"forgot" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+     <label for="remember_me">Remember me:</label>
+    </td>
+    <td>
+      <%= check_box_tag 'remember_me' %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">
+      <%= submit_tag 'Log in' %> or
+      <%= link_to "Join Today", :controller=> "account", :action=>"signup" %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      
+    </td>
+  </tr>
+</table>
+<% end -%>
+</div>
+  </div>  
+  </div>

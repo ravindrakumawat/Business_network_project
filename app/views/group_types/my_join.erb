@@ -1,0 +1,37 @@
+<div style="width:800px;">
+  <table>
+    <tr>
+      <td colspan="2">
+        <div style="margin-left:20px;">
+           <%= render :partial => "group_tab" %>
+        </div>
+         
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+            <div class="divcreategroup">
+          <div class="divcgmatter">
+            <span style="font-weight:bold;">
+            LinkedOUT Groups can help you<br/>
+            stay informed and keep in <br/>
+            touch with people that share<br/>
+            your interests. Create a <br/>
+            group today.
+            </span>
+          </div><br/>
+          <div>
+        <%= link_to image_tag('create_group.JPG'), :controller=> 'groups', :action=>'new' %>
+        </div>
+        </div>
+      </td>
+      <td>
+        <div class="divrecord">
+      <% @group_joins.each do |group| %>
+  
+<%end%>
+        </div>
+      </td>
+    </tr>
+  </table>
+</div>

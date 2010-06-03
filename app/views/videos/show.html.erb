@@ -1,0 +1,34 @@
+<%= javascript_include_tag 'swfobject' %>
+<%= yield :javascripts %>
+<div style="margin-left:20px;" align="left">
+   <h1><%= @video.title %></h1>
+        <div>Uploaded By: <%= link_to @video.user.login %> on <%= @video.video_updated_at %></div>
+	<span class = "tags">Tagged with: <span><%#= @video.tag_list %></span></span>
+        <br/><br/>
+        
+        <div id="player_<%= @video.id %>">
+          <script type="text/javascript">
+    //<![CDATA[
+      var flashvars = { file: "<%= @video.flash_url %>" };
+     swfobject.embedSWF('/jw/embed/player.swf', 'player_<%= @video.id %>', '470', '320', '9.0.0', 'swfobject/expressInstall.swf', flashvars);
+     //]]>
+  </script>
+</div>
+<br /> <br />
+<div>	<br />
+	<p><%= @video.description %></p>
+	<div id = "video_replies">
+	<%= render :partial => 'reply' %>
+<% for reply in @video.replies do %>
+<div class = "reply">
+<p>Posted By: <br/>
+    <% @photo = Photo.find(:first, :conditions =>['user_id =?', reply.user]) %>
+     <%= link_to image_tag(@photo.photo.url,:size=> '50x50'), profile_for(reply.user) %>
+    <%= link_to reply.user.login,profile_for(reply.user) %> on <%= reply.created_at %></p>
+	<%= reply.body %>
+		</div>
+		<% end %>
+	</div>
+
+</div>	
+</div>

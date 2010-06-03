@@ -1,0 +1,41 @@
+<div style="height:auto;margin-left:50px;">
+<h1>Listing billing_infos</h1>
+
+<table>
+  <tr>
+    <th>Fname</th>
+    <th>Lname</th>
+    <th>Add line1</th>
+    <th>Add line2</th>
+    <th>Country</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Postal code</th>
+    <th>Phone</th>
+    <th>Company</th>
+  </tr>
+
+<% @billing_infos.each do |billing_info| %>
+  <tr>
+    <td><%=h billing_info.fname %></td>
+    <td><%=h billing_info.lname %></td>
+    <td><%=h billing_info.add_line1 %></td>
+    <td><%=h billing_info.add_line2 %></td>
+    <td><%=h billing_info.country %></td>
+    <td><%=h billing_info.city %></td>
+    <td><%=h billing_info.state %></td>
+    <td><%=h billing_info.postal_code %></td>
+    <td><%=h billing_info.phone %></td>
+    <td><%=h billing_info.company %></td>
+    <td><%= link_to 'Show', billing_info %></td>
+    <td><%= link_to 'Edit', edit_billing_info_path(billing_info) %></td>
+    <td><%= link_to 'Destroy', billing_info, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New billing_info', new_billing_info_path %>
+
+</div>

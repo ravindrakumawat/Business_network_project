@@ -1,0 +1,30 @@
+<div style="width:800px;margin-left:20px;">
+    <h1>Listing events</h1>
+    <table width="800px">
+  <tr>
+    <td colspan="2">
+       <div>
+           <%= render :partial => "event_tab" %>
+       </div>
+    </td>
+  </tr>
+ </table>
+     <% form_for @search do |f| %>
+  <p><%= f.text_field :title_like %><p>
+  <p><%= submit_tag 'Search' %></p>
+  <% end %>
+<% if @search.empty? %>
+  No Record Found.
+  <%  else %>
+     <% @events.each do |event| %>
+      <%= "Event Name :" %>
+      <%= event.title %>
+      <br/>
+     <%= link_to 'Edit This Event', edit_event_path(event) %>
+    <%  end %>
+    <% #link_to 'Destroy', event, :confirm => 'Are you sure?', :metdod => :delete %>
+<%  end %>
+<br />
+<hr>
+<%= link_to 'New event', new_event_path %>
+</div>

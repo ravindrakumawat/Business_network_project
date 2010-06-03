@@ -1,0 +1,18 @@
+<% content_for :friend do %>
+  <hr noshade />
+  Friends:
+  <%= render :partial => "friendship/friends" %>
+
+<% end %>
+
+ <% content_for :blog do %>
+ <% unless @blog.posts.empty? %>
+ <hr noshade />
+ Blog: <%= render :partial => "blog" %>
+ <% end %>
+<% end %>
+
+ <% content_for :friend_request do %>
+ <%= render :partial => "contact_box" %>
+
+<% end %>

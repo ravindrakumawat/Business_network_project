@@ -1,0 +1,14 @@
+
+<h4><%= link_to "Create a new group" ,{:controller => 'groups', :action => 'new'} %>
+
+<%= link_to "Browse groups",{:controller =>'groups',:action =>'index'} %>
+<%if logged_in?%>
+<%= link_to "Your groups", {:controller => 'groups', :action => 'join_show', :id => current_user.id}  %>
+<%end%>
+
+</h4>
+
+
+
+
+

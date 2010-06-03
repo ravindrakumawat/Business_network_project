@@ -1,0 +1,21 @@
+<% if @users and not @users.empty? %>
+<table class="users" border="0" cellpadding="5" cellspacing="1">
+ <% @users.each do |user| %>
+<tr >
+  <td>
+<% @photo = Photo.find(:first, :conditions =>['user_id =?', user]) %>
+  <%= link_to image_tag(@photo.photo.url(:small)), profile_for(user) %>
+</td>
+<td>
+  <table>
+    <tr>
+    <td>
+<%= link_to user.login %>
+    </td>
+    </tr>     
+  </table>
+    </td>
+</tr>
+<% end %>
+</table>
+<% end %>

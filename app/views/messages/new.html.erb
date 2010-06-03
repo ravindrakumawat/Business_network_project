@@ -1,0 +1,27 @@
+<div style="margin-left:30px;">
+ <%= render :partial => 'message_tab'%>
+<% form_for(@message) do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :receiver,'TO' %> 
+    <%= f.text_field :receiver %>
+  </p>
+
+  <p>
+    <%= f.label :subject,'SUBJECT' %><br />
+    <%= f.text_field :subject %>
+  </p>
+
+  <p>
+    <%= f.label :message,'MESSAGE' %><br />
+    <%= f.text_area :message %>
+  </p>
+
+  
+
+    <%= f.submit "Create" %>
+    <%= link_to 'Back', :action=> 'index' %>
+
+<% end %>
+</div>
+

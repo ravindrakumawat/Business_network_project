@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <title>GET 2GETHER </title>
+<%= stylesheet_link_tag 'style' %>
+<%= stylesheet_link_tag 'scaffold' %>
+<%= stylesheet_link_tag 'profile' %>
+<%= javascript_include_tag :defaults %>
+<%= include_wice_grid_assets %>
+
+</head>
+<body>
+<div class="PageBackgroundSimpleGradient">
+    </div>
+    <div class="PageBackgroundGlare">
+        <div class="PageBackgroundGlareImage"></div>
+    </div>
+    <div class="Main">
+        <div class="Sheet">
+            <div class="Sheet-tl"></div>
+            <div class="Sheet-tr"></div>
+            <div class="Sheet-bl"></div>
+            <div class="Sheet-br"></div>
+            <div class="Sheet-tc"></div>
+            <div class="Sheet-bc"></div>
+            <div class="Sheet-cl"></div>
+            <div class="Sheet-cr"></div>
+            <div class="Sheet-cc"></div>
+            <div class="Sheet-body">
+                 <div class="Header">
+                    <div class="Header-png"></div>
+                    <div class="Header-jpeg"></div>
+                    <div class="logo">
+                    <h1 id="name-text" class="logo-name"><a href="#"><p align="left" style="margin-left:20px;">GET 2GETHER</p></a></h1>
+                    </div>
+                </div>
+                   <div class="nav">
+                	<div class="l"></div>
+                	<div class="r"></div>
+                	<ul class="artmenu">
+                            <li><a href="/home" ><span class="l"></span><span class="r"></span><span class="t">Home</span></a></li>
+                		<li><a href="/spec"><span class="l"></span><span class="r"></span><span class="t">Profile</span></a>
+                			<ul>
+                					<li><a href="/spec">View Profile</a></li>
+                                                        <li><a href="/events/new">Events</a></li>
+                                 	</ul>
+                		</li>
+                		<li><a href="/emailer"><span class="l"></span><span class="r"></span><span class="t">Contacts</span></a>
+                                <ul>
+                			<li><a href="friendship/index">My Connections</a></li>
+                				<li><a href="/emailer">Add Connections</a></li>
+                			</ul>
+                                </li>
+                                 <li><a href="/groups"><span class="l"></span><span class="r"></span><span class="t">Groups</span></a>
+                                <ul>
+                				<li><a href="/my_joins">My Groups</a></li>
+                				<li><a href="/groups/">Followings</a></li>
+                                                <li><a href="/groups/">Groups Directory</a></li>
+                				<li><a href="/groups/new">Create a Group</a></li>
+
+                			</ul>
+                                </li>
+
+                                <li><a href="/jobs/"><span class="l"></span><span class="r"></span><span class="t">Jobs</span></a>
+                                <ul>
+                				<li><a href="/jobs/">Find Jobs</a></li>
+                				<li><a href="/jobs/new">Post a Job</a></li>
+                				<li><a href="/billing_infos/show">Job Credits</a></li>
+                			</ul>
+                                </li>
+                		<li><a href="/messages"><span class="l"></span><span class="r"></span><span class="t">Inbox</span></a>
+                                 <ul>
+                				<li><a href="/messages/inbox/<%= current_user.id%>">View Received Messages</a></li>
+                				<li><a href="/messages/sentbox/<%= current_user.id%>">Sent</a></li>
+                                             	<li><a href="/messages/new">Compose Message</a></li>
+
+                			</ul>
+                                </li>
+                            <li><a href="#"><span class="l"></span><span class="r"></span><span class="t">Collection</span></a>
+                                 <ul>
+                				<li><a href="/albums/">Photos</a></li>
+                				<li><a href="/videos/">Videos</a></li>
+                                               <li><a href="/blogs/<%= if @blog = Blog.find(:first, :conditions=>{:user_id=> current_user.id})
+                                                                    @blog.id end -%>/posts">Blogs</a></li>
+                                                 <li><a href="/share_videos/">Video Sharing</a></li>
+                                                <li><a href="/sounds/">Audio Files</a></li>
+
+                			</ul>
+                                </li>
+                	</ul>
+ </div>
+               <div class="art-contentLayout">
+                 <div align="right">
+                <table>
+                <tr>
+                  <td width="60%" align="right">
+                    <%= link_to current_user.login, :action=> 'index' %>
+                  </td>
+                  <td>
+                    <%= link_to 'Log Out', :controller => 'account', :action => 'logout' %>
+                  </td>
+                  <td>
+                     <%= yield :search %>
+                  </td>
+                </tr>
+                </table>
+                <% if flash[:notice] -%>
+                   <blockquote>
+               <h2><%= flash[:notice] %></h2>
+                   </blockquote>
+                 <% end -%>
+                </div>
+                     <div class="art-sidebar1">
+                        <div class="art-Block">
+                            <div class="art-Block-tl"></div>
+                            <div class="art-Block-tr"></div>
+                            <div class="art-Block-bl"></div>
+                            <div class="art-Block-br"></div>
+                            <div class="art-Block-tc"></div>
+                            <div class="art-Block-bc"></div>
+                            <div class="art-Block-cl"></div>
+                            <div class="art-Block-cr"></div>
+                            <div class="art-Block-cc"></div>
+                            <div class="art-Block-body">
+                              <div class="art-BlockContent">
+                                    <div class="art-BlockContent-body">
+                                     <div align="center">
+       <% @photo = Photo.find(:first, :conditions =>['user_id =?', @user.id]) %>
+       <%=  image_tag(@photo.photo.url(:small)) %>
+               <br/>
+     <span><%= link_to @user.login,:controller => 'spec',:action=> 'index' %></span>
+        </div>     </div>
+                       </div>
+                            </div>
+                        </div>
+              <div class="art-Block">
+                            <div class="art-Block-tl"></div>
+                            <div class="art-Block-tr"></div>
+                            <div class="art-Block-bl"></div>
+                            <div class="art-Block-br"></div>
+                            <div class="art-Block-tc"></div>
+                            <div class="art-Block-bc"></div>
+                            <div class="art-Block-cl"></div>
+                            <div class="art-Block-cr"></div>
+                            <div class="art-Block-cc"></div>
+                            <div class="art-Block-body">
+                            <div class="art-BlockContent">
+                             <div class="art-BlockContent-body">
+                               <div id="linksmenu" align="center">
+                               <%= link_to 'Profile',:controller=> 'spec',:action=> 'index',:class=> 'a'%>
+                               <%= link_to 'Messages',:controller=> 'messages',:action=> 'index',:class=> 'a'%>
+                               <%= link_to 'Photos',:controller=> 'albums',:action=> 'index',:class=> 'a'%>
+                               <%= link_to 'Videos',:controller=> 'videos',:action=> 'index',:class=> 'a'%>
+                               <%= link_to 'Events',:controller=> 'events',:action=> 'index',:class=> 'a'%>
+                               <a href="/blogs/<%= if @blog = Blog.find(:first, :conditions=>{:user_id=> current_user.id})
+                                                                    @blog.id end -%>/posts">Blogs</a>
+                               <%= link_to 'Audios',:controller=> 'sounds',:action=> 'index',:class=> 'a'%>
+                               </div>
+                             </div>
+                              <span>
+                                <a href="/emailer" >Invite Friends</a>
+                              </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="art-content">
+                        <div class="art-Post">
+                            <div class="art-Post-body">
+                        <div class="art-Post-inner">
+                            <h2 class="art-PostHeaderIcon-wrapper">
+                                
+                            </h2>
+                            <div class="art-PostContent">
+                            </div>
+                        </div>
+                            </div>
+                        </div>
+                        </div>
+                    <div class="art-sidebar2">
+                        <div class="art-Block">
+                            <div class="art-Block-tl"></div>
+                            <div class="art-Block-tr"></div>
+                            <div class="art-Block-bl"></div>
+                            <div class="art-Block-br"></div>
+                            <div class="art-Block-tc"></div>
+                            <div class="art-Block-bc"></div>
+                            <div class="art-Block-cl"></div>
+                            <div class="art-Block-cr"></div>
+                            <div class="art-Block-cc"></div>
+                            <div class="art-Block-body">
+                                <div class="art-BlockHeader">
+                                    <div class="l"></div>
+                                    <div class="r"></div>
+                                    <div class="art-header-tag-icon">
+                                        <div class="t">Friends</div>
+                                    </div>
+                                </div><div class="art-BlockContent">
+                                    <div class="art-BlockContent-body">
+                                       <div>
+                                    <%= yield :friend %>
+                                    <%= yield :friend_request %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      <div class="art-Block">
+                            <div class="art-Block-tl"></div>
+                            <div class="art-Block-tr"></div>
+                            <div class="art-Block-bl"></div>
+                            <div class="art-Block-br"></div>
+                            <div class="art-Block-tc"></div>
+                            <div class="art-Block-bc"></div>
+                            <div class="art-Block-cl"></div>
+                            <div class="art-Block-cr"></div>
+                            <div class="art-Block-cc"></div>
+                            <div class="art-Block-body">
+                                <div class="art-BlockHeader">
+                                    <div class="l"></div>
+                                    <div class="r"></div>
+                                    <div class="art-header-tag-icon">
+                                        <div class="t">Blogs</div>
+                                    </div>
+                                </div><div class="art-BlockContent">
+                                    <div class="art-BlockContent-body">
+                                       <div>
+                                    <%= yield :blog %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  <div class="cleared"></div><div class="Footer">
+                    <div class="Footer-inner">
+                        <a href="#" class="rss-tag-icon" title="RSS"></a>
+                        <div class="Footer-text">
+                            <p><a href="#">Contact Us</a> | <a href="#">Terms of Use</a> | <a href="/forums">Forums</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="Footer-background"></div>
+                </div>
+    </div>
+        </div>
+    </div>
+</body>
+</html>

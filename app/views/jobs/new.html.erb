@@ -1,0 +1,209 @@
+<div style="width:800px;">
+ <% form_for(@job) do |f| %>
+  <table width="800px" style="margin-left:20px;">
+    <tr>
+     <td colspan="">
+       <div>
+           <%= render :partial => "job_tab" %>
+   </div>
+    </td>
+    </tr>
+    <tr>
+      <td>
+        <h1>Post Job</h1>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <table  style="margin-left:50px;">
+       <tr>
+     <td colspan="2">
+         <%= f.error_messages %>
+      </td>
+    </tr>
+       <tr>
+      <td>
+         <%= hidden_field_tag 'job' 'user_id', current_user.id %>
+        </td>
+    </tr>
+    <tr>
+      <td width="80px" style="font-weight:bold;">
+         <%= f.label :title %>:
+      </td>
+      <td>
+            <%= f.text_field :title %>
+           at <%= f.text_field :company_name %>
+      </td>
+    </tr>
+    <tr>
+     <td style="font-weight:bold;">Location:</td>
+      <td>
+        <%= f.text_field :location_id ,:style=>"width:370px" %>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+      <td>
+        <%= collection_select(:job,:country_id,Country.all,:id,:name,{:prompt => true}) %>
+        &nbsp; <%= f.text_field :pincode %>
+      </td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold;">
+     Company URL:
+      </td>
+      <td>
+        http://<%= f.text_field :company_url,:style=>"width:340px" %>
+      </td>
+    </tr>
+        </table>
+      <hr>
+        <table>
+    <tr>
+      <td>
+        
+      </td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold;">
+       Type:
+      </td>
+      <td>
+  <%= f.select("job_type",{"Full-time" => "1","Part-time" => "2", "Contract" => "3", "Temporary" => "4", "Other" => "5"},{:prompt=>true},:style=>"width:300px") %>
+     </td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold;">
+      Experience:
+      </td>
+      <td>
+  <%= f.select("experience", {"Executive" => "1","Director" => "2", "Mid-Senior Level" => "3", "Associate" => "4", "Entry-level" => "5", "Internship" => "6", "Not Applicable" => "7"},{:prompt=>true},:style=>"width:300px") %>
+     </td>
+    </tr>
+     <tr>
+     <td valign="top" style="font-weight:bold;">
+      Industries:
+      </td>
+      <td>
+   <%= collection_select(:job,:industry_ids,Industry.all, :id,:industry_name ,{:selected => @job.industry_ids },{:multiple => true, :name => 'job[industry_ids][]',:style => "width:300px"}) -%>
+      </td>
+    </tr>
+   <tr>
+     <td valign="top" style="font-weight:bold;">
+       Functions:
+      </td>
+      <td>
+<%= collection_select(:job,:function_ids,Function.all, :id,:name ,{:selected => @job.function_ids },{:multiple => true, :name => 'job[function_ids][]',:style => "width:300px"}) -%>
+    </td>
+    </tr>
+    <tr>
+     <td style="font-weight:bold;">
+      Employer job ID:
+      </td>
+      <td>
+         <%= f.text_field :employer_job_id,:style=>"width:295px" %>
+      </td>
+    </tr>
+       <tr>
+      <td style="font-weight:bold;">
+    Compensation:(optional)
+      </td>
+      <td>
+       <%= collection_select(:job,:currency_id,Currency.all,:id,:name,{:prompt => true},:style => "width:300px") %>
+      </td>      
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+     <%= f.text_field :compensation, :style=>'width:90px'%>&nbsp; to <%= f.text_field :compensation, :style=>'width:90px'%>&nbsp;<%= f.select("schema", {"Per week" => "1","Per Month" => "2", "Per Year" => "3"},{:prompt=>true}) %>
+      </td>     
+    </tr>
+     <tr>
+      <td style="font-weight:bold;">
+        Additional Information
+      </td>
+      <td>
+       <%= f.text_field :add_information, :style=>'width:295px'%>
+      </td>
+    </tr>
+    <tr>
+      <td style="font-weight:bold;">
+        Bonus
+      </td>
+      <td>
+       <%= f.text_field :bonus, :style=>'width:150px'%>&nbsp;for&nbsp;<%= f.select("schema", {"Per week" => "1","Per Month" => "2", "Per Year" => "3"},{:prompt=>true},:style => "width:125px") %>
+      </td>
+    </tr>
+     <tr>
+     <td style="font-weight:bold;">
+        Bonus Description
+      </td>
+      <td>
+       <%= f.text_field :bonus_description, :style=>'width:295px'%>
+      </td>
+    </tr>
+    <tr>
+     <td style="font-weight:bold;">
+       Language
+      </td>
+      <td>
+       <%= collection_select(:job,:language_id,Language.all,:id,:name,{:prompt => true},:style => "width:300px") %>
+      </td>
+    </tr>
+        </table>
+        <hr>
+      </td>
+    </tr>
+
+    <tr>
+       <td colspan="2" style="font-weight:bold;">
+       <%= f.label :job_description %> <br/>
+
+        <%= f.text_area :job_description %>
+      </td>
+    </tr>
+     <tr>
+        <td colspan="2" style="font-weight:bold;">
+        <%= f.label :skills %><br/>
+
+         <%= f.text_area :skills %>
+      </td>
+    </tr>
+    <tr>
+       <td colspan="2" style="font-weight:bold;">
+        <%= f.label :company_description %><br/>
+
+         <%= f.text_area :company_description %>
+      </td>
+    </tr>
+       <tr>
+      <td colspan="2" style="font-weight:bold;">
+        Additional Information
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+<%= f.check_box :local_candidate_only %>
+
+  <%= f.label :local_candidate_only %>
+      </td>
+    </tr>
+    <tr>
+   <td colspan="2">
+   <%= f.check_box :third_party_not_accepted %>
+
+ <%= f.label :third_party_not_accepted %>
+      </td>
+
+    </tr>
+    <tr>
+      <td colspan="2">
+<%= f.submit 'Create' %>
+      </td>
+         </tr>  
+  </table>
+ 
+<% end %>
+ </div>

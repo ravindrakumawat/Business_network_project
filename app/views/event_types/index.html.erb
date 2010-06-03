@@ -1,0 +1,22 @@
+<div style="margin-left:50px;" align="left">
+<h1>event_types</h1>
+
+<table>
+  <tr>
+    <th>Event type</th>
+  </tr>
+
+<% @event_types.each do |event_type| %>
+  <tr>
+    <td><%=h event_type.event_type %></td>
+    <td><%= link_to 'Show', event_type %></td>
+    <td><%= link_to 'Edit', edit_event_type_path(event_type) %></td>
+    <td><%= link_to 'Destroy', event_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New event_type', new_event_type_path %>
+</div>

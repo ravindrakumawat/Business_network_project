@@ -1,0 +1,27 @@
+<div class="divrecord" style="margin-left:80px;">
+<h1>Listing replies</h1>
+
+<table>
+  <tr>
+    <th>Topic</th>
+    <th>User</th>
+    <th>Subject</th>
+    <th>Body</th>
+  </tr>
+
+<% @replies.each do |reply| %>
+  <tr>
+    <td><%=h reply.topic %></td>
+    <td><%=h reply.user %></td>
+    <td><%=h reply.subject %></td>
+    <td><%=h reply.body %></td>
+    <td><%= link_to 'Show', reply %></td>
+    <td><%= link_to 'Edit', edit_reply_path(reply) %></td>
+    <td><%= link_to 'Destroy', reply, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New reply', new_reply_path %></div>

@@ -1,0 +1,49 @@
+
+
+<div style="width:800px;">
+  <table>
+    <tr>
+      <td colspan="2">
+        <div style="margin-left:20px;">
+           <%= render :partial => "layouts/mailbox_list" %>
+        </div>
+
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+     <div class="divsearch">
+       <div style="margin-top:30px;" >
+       <br />  <p></p>
+  <p><%= text_field 'subject','message'%><p>
+  <p>   <p>
+<p>
+  <p>
+  <p><%= submit_tag 'Search' %></p>
+  </div>
+ </div>
+        <div class="divcreategroup">
+                </div>
+      </td>
+      <td>
+        <div class="divrecord">
+         <h2>Sent: <%=h(@message.subject) %></h2>
+<p><strong>To:</strong> <%= @message.recipients.map(&:login).to_sentence %></p>
+<p><strong>Sent:</strong> <%= @message.created_at.to_s(:long) %></p>
+
+<pre><%=h @message.body %></pre>
+
+          </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+      </td>
+    </tr>
+  </table>
+
+
+
+  </div>
+

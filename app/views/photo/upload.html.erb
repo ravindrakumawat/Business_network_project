@@ -1,0 +1,16 @@
+
+<div align="" style="width:400px;">
+<% form_for(:photo, :html => {:multipart => true}) do |f| %>
+<fieldset>
+<legend><%= @title %></legend>    
+    <p>
+      <%= f.label :photo, "Photo" %>
+      <%= f.file_field :photo %>
+    </p><p>
+      <%= f.submit "Submit" %>
+    </p>
+  
+</fieldset>
+<% end %>
+
+</div>

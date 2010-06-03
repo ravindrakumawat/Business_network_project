@@ -1,0 +1,88 @@
+<div style="margin-left:20px;">    
+  <% form_for @search do |f| %>
+     <table style="padding:10px;">
+     <tr>
+       <td colspan="4">
+        <%= render :partial => "find_job_tab" %>
+       </td>
+     </tr>
+     <tr>
+       <td colspan="2">
+         <h1>
+           Advance Search
+         </h1>
+       </td>
+     </tr>
+     <tr>
+        <td>
+         Job Title:
+       </td>
+        <td>
+        <%= f.text_field :title_like,:style=>"width:200px" %>
+       </td>
+       <td>
+        Comapny:
+       </td>
+       <td>
+         <%= f.text_field :company_name_like,:style=>"width:200px" %>
+       </td>
+     </tr>
+     <tr>
+      <td>
+        Location:
+       </td>
+        <td>
+        <%= f.select("location_id",{"Anywhere" => "1","Located in or Near" => "2"},{:prompt=>true},:style=>"width:205px") %>
+       </td>
+       <td>
+       Industry:
+       </td>
+       <td>
+        <%= f.collection_select :industry_id_equals, Industry.all, :id, :industry_name,{:prompt => true},:style => "width:205px" %>
+       </td>
+     </tr>
+     <tr>
+       <td>
+        Function:
+       </td>
+       <td>
+         <%= f.collection_select :function_id_equals, Function.all, :id, :name,{:prompt => true},:style => "width:205px" %>
+       </td>
+       <td>
+        Experience:
+       </td>
+       <td>
+   <%= f.select("experience", {"Executive" => "1","Director" => "2", "Mid-Senior Level" => "3", "Associate" => "4", "Entry-level" => "5", "Internship" => "6", "Not Applicable" => "7"},{:prompt=>true},:style=>"width:205px") %>
+       </td>
+     </tr>
+     <tr>
+       <td colspan="2">
+<%= submit_tag 'Search' %>
+       </td>
+     </tr>
+      <tr>
+       <td colspan="4">
+          <div style="margin-left:20px;">
+     <% if @jobs.empty? %>
+ <div style="margin-left:20px;margin-top:10px;">NO JOB FOUND.</div>
+<% else %>
+ <% @jobs.each do |job| %>
+  <div class="divjobs">
+     <hr>
+    <p><span style="font-size:17px;"><%= link_to job.title,:controller=> 'jobs', :action=>'show',:id=> job.id %></span></p>
+   <%= job.company_name %> <%= job.pincode %>
+   <% end %>
+  </div>
+   <% end %>
+          </div>
+        </td>
+    </tr>
+     <tr>
+      <td colspan="2">
+<div align="center"><%= will_paginate @jobs %></div>
+      </td>
+     </tr>
+   </table>
+       <% end %>
+   </div>
+     

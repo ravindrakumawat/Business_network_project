@@ -1,0 +1,9 @@
+<div class="divrecord" style="margin-left:80px;">
+<h1>Editing reply</h1>
+
+<%= error_messages_for :reply %>
+
+<%= render :partial => @reply, :locals => { :button_name => "Submit" } %>
+
+<%= link_to 'Show', [@topic, @reply] %> |
+<%= link_to 'Back', replies_path %></div>

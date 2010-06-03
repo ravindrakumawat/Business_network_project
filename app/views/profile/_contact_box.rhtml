@@ -1,0 +1,22 @@
+
+<% if logged_in? and @user != @logged_in_user %>
+<%if Friendship.find(:first,:conditions=>{:user_id=>current_user.id, :friend_id=> @user} && {:user_id=> @user, :friend_id=> current_user.id}) %>
+  <% else %>
+
+ <div class="sidebar_box">  
+   <h2>
+    <span class="header">Friend Request</span>
+    <br clear="all" />
+  </h2>
+   <ul>
+    <li>         
+          <%= link_to "Request friendship with #{@user.login}",
+                      { :controller => "friendship", :action => "create", 
+                        :id => @user.login },
+                      :confirm => 
+                      "Send friend request to #{@user.login}?" %>
+        <% end %>
+    </li>
+  </ul>
+</div>
+<%end %>

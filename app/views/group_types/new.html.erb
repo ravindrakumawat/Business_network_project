@@ -1,0 +1,17 @@
+<div style="margin-left:20px;">
+<h1>New group_type</h1>
+
+<% form_for(@group_type) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :group_type_name %><br />
+    <%= f.text_field :group_type_name %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', group_types_path %>
+</div>

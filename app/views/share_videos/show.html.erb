@@ -1,0 +1,15 @@
+<div style="margin-left:20px;">
+<p>
+  <b>Title:</b>
+  <%=h @share_video.title %>
+</p>
+
+<p>
+  <b>Video url:</b>
+ <%= display_video(@share_video) %>
+</p>
+
+<%= link_to 'Edit', edit_share_video_path(@share_video) %> |
+<%= link_to 'Back', share_videos_path %>
+
+</div>

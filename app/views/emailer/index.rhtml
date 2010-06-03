@@ -1,0 +1,56 @@
+<div style="margin-left:20px;">
+<%= form_tag :action => 'sendmail' %>
+<%= @object.association.variable rescue nil %>
+
+
+  <table>
+    <tr><td>
+        To:
+      </td>
+      <td>
+        <%= text_field 'email', 'recipient' %>
+       </td>
+</tr>
+	 <tr>
+        <td><label for="email_sender">From:</label></td>
+        <td><%= text_field 'email', 'user',:value=>current_user.email %></td>
+        </tr>
+<tr>
+  <td>
+<label for="email_subject">Subject:</label></td><td><%= current_user.login %> invites you on Get2gether!</td>
+</tr>
+ 
+
+  
+<tr>
+<td></td><td><%= text_area 'email', 'message', :rows=>"4", :class=>"medium-font",:style=>"width: 70%; padding: 4px;", :value=>"Add me as a friend"  %></td>
+</tr>
+</table><table>
+ <tr><td></td><td>
+Registration on Get2gether is free and only takes a minute. Just click here:</td></tr>
+
+<tr><td></td><td>http://localhost:3000/account/signup</td></tr>
+<tr>
+<td></td><td>
+See you soon on Get2gether!</td></tr>
+<tr><td></td><td>
+<%=  current_user.login %></td></tr>
+<tr><td></td><td>
+<%= submit_tag "Send" %></td></tr></table>
+<%= form_tag %>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

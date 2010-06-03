@@ -1,0 +1,31 @@
+<div style="height:auto;margin-left:50px;">
+<h1>Purchase: Billing Information</h1>
+<%= form_tag :action => 'create' %>
+  <%= error_messages_for 'billing_info' %>
+<fieldset style="margin-left:30px;;margin-right:200px;">
+  <legend>Billing Information</legend>
+<table>
+<tr><td><label for="event_title">First Name</label>:</td>
+<td><%= text_field 'billing_info', 'fname' %></td></tr>
+<tr><td><label for="event_title">Last Name</label>:</td>
+<td><%= text_field 'billing_info', 'lname' %></td></tr>
+<tr><td><label for="event_title">Address</label>:</td>
+<td><%= text_field 'billing_info', 'add_line1' %></td>
+<td><%= text_field 'billing_info', 'add_line2' %></td></tr>
+<tr><td><label for="event_title">Country</label>:</td>
+<td><%= text_field 'billing_info', 'country' %></td></tr>
+<tr><td><label for="event_title">City</label>:</td>
+<td><%= text_field 'billing_info', 'city' %></td></tr>
+<tr><td><label for="event_title">State</label>:</td>
+<td><%= text_field 'billing_info', 'state' %></td></tr>
+<tr><td><label for="event_title">Postal Code</label>:</td>
+<td><%= text_field 'billing_info', 'postal_code' %></td></tr>
+<tr><td><label for="event_title">Phone</label>:</td>
+<td><%= text_field 'billing_info', 'phone' %></td></tr>
+<tr><td><label for="event_title">Company</label>:</td>
+<td><%= text_field 'billing_info', 'company' %></td></tr>
+<tr><td><%= submit_tag "Create" %></td></tr></table>
+</fieldset>
+<%= form_tag %>
+<%= link_to 'Back', billing_infos_path %>
+</div>

@@ -1,0 +1,13 @@
+<p>
+  <b>Chat field:</b>
+  <%=h @group_chat.chat_field %>
+</p>
+
+<p>
+  <b>User name:</b>
+  <%=h @group_chat.user_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_group_chat_path(@group_chat) %> |
+<%= link_to 'Back', group_chats_path %>

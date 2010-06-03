@@ -1,0 +1,137 @@
+
+       <div >
+           <%= render :partial => "event_tab" %>
+       </div>
+ <p>
+  <b>User:</b>
+  <%=h @event.user_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @event.title %>
+</p>
+
+<p>
+  <b>Datentime:</b>
+  <%=h @event.from_datentime %>
+</p>
+
+<p>
+  <b>Datentime:</b>
+  <%=h @event.to_datentime %>
+</p>
+
+<p>
+  <b>Virtual:</b>
+  <% if @event.virtual==true %>
+  <%= "Yes, It\'s virtual Event."  %>
+  <% else %>
+  <%= "It\'s a Real Event."  %>
+  <% end %>
+</p>
+
+<p>
+  <b>Venue:</b>
+  <%=h @event.venue %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%=h @event.address %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%=h @event.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%=h @event.state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%=h @event.country %>
+</p>
+
+<p>
+  <b>Pastalcode:</b>
+  <%=h @event.postalcode %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%=h @event.website %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @event.description %>
+</p>
+
+<p>
+  <b>Eventtype:</b>
+  <%=h @event.eventtype_id %>
+</p>
+
+<p>
+  <b>Industry:</b>
+  <%=h @event.industry_id %>
+</p>
+
+<p>
+  <b>Keywords:</b>
+  <%=h @event.keywords %>
+</p>
+
+<p>
+  <b>Attender:</b>
+  <%=h @event.attender %>
+</p>
+
+<p>
+  <b>Organization:</b>
+  <%=h @event.organization %>
+</p>
+
+<p>
+  <b>Attending:</b>
+  <%=h @event.attending %>
+</p>
+
+<p>
+  <b>Organizing:</b>
+  <% if @event.organizing==true %>
+  <%=h "Yes, I am organizing this event" %>
+  <% else %>
+  <%=h "No, I am not going organizing this event" %>
+  <% end %>
+</p>
+
+<p>
+  <% if @event.free==true %>
+  <b>Free:</b>
+  <%=h "This Event is absolutely free" %>
+  <% end %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @event.price %>
+</p>
+
+<p>
+  <b>Repeat:</b>
+  <%=h @event.repeat %>
+</p>
+
+<p>
+  <b>Edit:</b>
+  <%=h @event.edit %>
+</p>
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>

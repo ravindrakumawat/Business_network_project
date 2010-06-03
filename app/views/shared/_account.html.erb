@@ -1,0 +1,8 @@
+<h1>Your account</h1>
+<ul class="tabs">
+  <li><span ><%= link_to "Edit your account" ,{:controller => 'spec', :action => 'edit'} %></span></li>
+<li><span><%= link_to "Edit your profile", {:controller => 'users', :action => 'edit',:id=>current_user.id} %></span></li>
+<li><span><%= link_to "Edit your photo", {:controller => 'photo', :action => 'upload'} %></span></li>
+
+
+</ul>

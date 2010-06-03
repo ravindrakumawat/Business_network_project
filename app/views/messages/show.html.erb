@@ -1,0 +1,24 @@
+<div style="margin-left:20px;">
+<p>
+  <b>Subject:</b>
+  <%=h @message.subject %>
+</p>
+
+
+<p>
+  <b>Message:</b>
+  <%=h @message.message %>
+</p>
+
+
+<p>
+  <b>Receiver:</b>
+  <%=h @message.receiver %>
+</p>
+
+
+
+<%=  link_to 'reply', :action => 'new_method', :id => @message.id %>
+
+<%= link_to 'Back', :action=> 'index' %>
+</div>

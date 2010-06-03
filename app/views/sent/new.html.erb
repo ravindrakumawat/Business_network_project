@@ -1,0 +1,65 @@
+<div style="width:800px;">
+  <table>
+    <tr>
+      <td colspan="2">
+        <div style="margin-left:20px;">
+           <%= render :partial => "layouts/mailbox_list" %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td valign="top">
+     <div class="divsearch">
+       <div style="margin-top:30px;" >
+   <br />  <p></p>
+  <p><%= text_field 'subject','message'%></p>
+  <p>   </p>
+<p>
+  </p>
+  <p><%= submit_tag 'Search' %></p>
+  </div>
+ </div>
+        <div class="divcreategroup">
+           </div>
+      </td>
+      <td>
+        <div class="divrecord">
+         <h2>Compose Mail</h2>
+ <% form_for :message, :url => {:controller => "sent", :action => "create"} do |f| %>
+  <table width="800px" style="margin-left:20px;">
+    <tr>
+     <td colspan="2">
+    </td>
+    </tr>
+       <tr>
+      <td>
+      <p>
+    To:<br />
+    <%= checklist "message[to][]", User.find(:all), :id, :login, @message.to %>
+  </p>
+      </td>
+       </tr>
+    <tr>
+      <td>
+      <p>Subject: <%= f.text_field :subject %></p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+       <p>Body:<br /> <%= f.text_area :body,:rows=>"10",:cols=>"38" %></p>
+      </td>
+     
+    </tr>
+        <tr>
+      <td colspan="2">
+<%= submit_tag "Send" %>
+      </td>
+         </tr>
+  </table>
+<% end %>
+       </div>
+      </td>
+    </tr>
+  </table>
+  </div>
+

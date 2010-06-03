@@ -1,0 +1,37 @@
+<div style="margin-left:20px;">
+<table >
+<% form_for @chat do |f| %>
+    <tr>
+    <td><%= f.label :"What\'s happening?" %></td></tr>
+    <tr>
+    <td><%= f.text_area :chat_field, :size => '40x5' %></td>
+    <td><%= f.hidden_field :user_name, :value=>session[:user_name] %></td>
+  </tr>
+  <tr>
+  <td>
+  </td>
+  <td><%= f.submit 'Submit', :action=>'create' %></td>
+<% end %>
+</table>
+<% @onlines.each do |online| -%>
+<% @users.each do |user|  %>
+<% @chats.each do |chat| -%>
+   <% if online.name==user.id && user.login=chat.user_name %>
+<table>
+	<tr>
+		<td><b><%= chat.user_name %><%= ": " %></b>
+			<%= chat.chat_field %>
+		</td>
+                <td>
+                  <p>
+                  <b> <%= time_ago_in_words(chat.created_at) %> ago</b></p>
+                </td>
+	</tr>
+	<% end %>
+        <% end %>
+        <% end %>
+        <% end %>
+</table>
+<br>
+<br>
+</div>

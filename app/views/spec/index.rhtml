@@ -1,0 +1,47 @@
+<div id="left_column">
+<h1>User Information</h1>
+ <div class="sidebar_box">
+<h2>
+<span class="header">Profile Photo</span>
+<span class="edit_link">
+   [<%= link_to "delete", {:controller=>"photo", :action => "delete" },
+:confirm => "Are you sure?" %>]
+<%= link_to "(edit)", :controller => "photo", :action => "upload" %>
+</span>
+<br clear="all" />
+</h2>
+  <div  align="left" class="sidebar_box_contents">  
+<%= render :partial => "photo/photo_row" %>
+</div>
+ </div>
+ <div class="sidebar_box">
+<h2>
+<span class="header">Basic Info</span>
+<span class="edit_link">
+<%= link_to "(edit)", :controller => "spec", :action => "edit" %>
+</span>
+<br clear="all" />
+</h2>
+    <div  align="left" class="sidebar_box_contents">
+      <table>
+<%= render :partial => "spec/field_row",
+:collection => Spec::ALL_FIELDS %></table>
+</div>
+</div>
+<div class="sidebar_box">
+<h2>
+<span class="header">Company Info</span>
+<span class="edit_link">
+<%= link_to "(edit)", :controller => "company", :action => "edit" %>
+</span>
+<br clear="all" />
+</h2>
+<div  align="left" class="sidebar_box_contents">
+    <table>
+<%= render :partial => "company/company_row",
+:collection => Company::ALL_FIELDS %>
+      </table>
+</div> 
+</div>
+<%= render :partial => 'education/sidebar_box', :collection => Education::FAVORITES %>
+</div>
